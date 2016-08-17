@@ -1,0 +1,367 @@
+
+#load_screen
+{
+    background: #64b22f;
+    opacity: 1;
+    position: fixed;
+    z-index: 10;
+    top: 0px;
+    width: 100%;
+    height: 1600px;
+
+}
+
+#load_screen #loading
+{
+    color: #FFF;
+    width: 650px;
+    height: 200px;
+    margin: 300px auto;
+    animation: blinker 1s linear infinite;
+    font-size: 200%;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0.0; }
+}
+
+#start
+{
+    display: block;
+    position: absolute;
+    top: 400px;
+    right: 50%;
+    z-index: 11;
+}
+
+html , body
+{
+    height:100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: 'Slackey'; 
+}
+
+#viewport
+{
+    background-color:#cdcdcd;
+    background-image:-moz-linear-gradient(#bbb,#eee,#bbb);
+    background-image:-webkit-linear-gradient(#bbb,#eee,#bbb);
+    overflow:hidden;
+    width: 100%;
+    height: 100%;
+    display:block;
+}
+
+#viewport.mobile
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+#viewport.tablet
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+#viewport.desktop
+{
+    position:fixed;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+}
+
+#container
+{
+    position:absolute;
+    width: 960px;
+    height: 536px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#top
+{
+    position:absolute;
+    width: 960px;
+    height: 536px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 0.5;
+    z-index: 3;
+}
+
+#container #buttons
+{
+    display: block;
+    position: absolute;
+    top: 218px;
+    right: 37px;
+    z-index: 4;
+}
+
+#container #buttons #click_play:hover
+{
+    cursor:pointer;
+}
+
+#game_over
+{
+    position:absolute;
+    width: 960px;
+    height: 536px;
+    top: 15px;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 5;
+}
+
+#game_over #click_continue
+{
+    display: block;
+    position: absolute;
+    top: 290px;
+    right: 280px;
+    z-index: 4;
+}
+
+#game_over #clicked_continue
+{
+    display: block;
+    position: absolute;
+    top: 290px;
+    right: 280px;
+    z-index: 4;
+}
+
+#game_over #click_continue:hover
+{
+    cursor:pointer;
+}
+
+.visible
+{
+    display: block;
+}
+
+.hidden
+{
+    display: none;
+}
+
+#container #reels
+{
+    display:block;
+    position:relative;
+    height: 536px;
+    overflow: hidden;
+    text-align: center;
+    border: 10px solid;
+    border-color: #777 #999 #666 #999;
+    border-radius:3px;
+    -moz-box-shadow:#fff 0px 1px 0px;
+}
+
+#container #reels canvas
+{
+    width: 233px;
+    height: 1790px;
+}
+
+#canvas1,
+#canvas2,
+#canvas3 
+{
+	position: absolute;
+}
+
+#canvas1 
+{
+	top: -540px;
+	left: 55px;
+
+}
+
+#canvas2 
+{
+	top: -540px;
+	left: 300px;
+}
+
+#canvas3 
+{
+	top: -540px;
+	left: 545px;
+}
+
+.styled_select select 
+{
+    background: transparent;
+    width: 160px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 34px;
+    -webkit-appearance: none;
+}
+
+.styled_select 
+{
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 140px;
+    height: 34px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    z-index: 4;
+}
+
+
+.won
+{
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 55px;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    color: #62b12f;
+    font-size: 350%;
+    z-index: 4;
+}
+
+.lost
+{
+    display: block;
+    position: absolute;
+    top: 70px;
+    right: 55px;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    color: red;
+    font-size: 350%;
+    z-index: 4;
+}
+
+.win
+{
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    color: white;
+    font-size: 400%;
+    z-index: 4;
+}
+
+/*TABLE CSS*/
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #3b3b3b;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  background: #2b2b2b;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 40px;
+  max-width: 800px;
+}
+
+.table {
+  margin: 0 0 40px 0;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: table;
+}
+@media screen and (max-width: 580px) {
+  .table {
+    display: block;
+  }
+}
+
+.row {
+  display: table-row;
+  background: #f6f6f6;
+}
+.row:nth-of-type(odd) {
+  background: #e9e9e9;
+}
+.row.header {
+  font-weight: 900;
+  color: #ffffff;
+  background: #3a9728;
+}
+.row.green {
+  background: #27ae60;
+}
+.row.blue {
+  background: #2980b9;
+}
+@media screen and (max-width: 580px) {
+  .row {
+    padding: 8px 0;
+    display: block;
+  }
+}
+
+.cell {
+  padding: 6px 12px;
+  display: table-cell;
+}
+@media screen and (max-width: 580px) {
+  .cell {
+    padding: 2px 12px;
+    display: block;
+  }
+}

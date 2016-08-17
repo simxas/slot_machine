@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+   <meta name="interface" content="desktop"/>
+   <title>Slot Machine</title>
+   <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+   <div id="load_screen">
+      <div id="loading">
+         <h1>GAME IS LOADING</h1>
+      </div>
+      <button id="start" type="button" disabled>START GAME</button>
+   </div>
+   <div id="viewport">
+      <div id="top"></div>
+      <div id="game_over" class="hidden">
+         <img id="click_continue" class="visible">
+      </div>
+
+      <div id="container">
+         <div id="reels">
+            <canvas id="canvas1" width="233" height="1790"></canvas>
+            <canvas id="canvas2" width="233" height="1790"></canvas>
+            <canvas id="canvas3" width="233" height="1790"></canvas>
+         </div>
+         <h1 id="money" class="win"></h1>
+         <div id="buttons">
+            <img id="click_play" class="visible">
+            <img id="cliked_play" class="hidden">
+         </div>
+         <div class="styled_select">
+            <select id="selection">
+               <option value="none">Your selection</option>
+               <option value="SYM3">Strawberry</option>
+               <option value="SYM4">Pineapple</option>
+               <option value="SYM5">Lemon</option>
+               <option value="SYM6">Watermelon</option>
+               <option value="SYM7">Grapes</option>
+               <option value="SYM1">Wild</option>
+            </select>
+         </div>
+
+         <div id="rules">
+            <h3>Rules</h3>
+
+            <p>* At the beginning of a game You will receive 40 Credits fo free.<br/>
+            * Each spin will cost You 10 Credits.<br/>
+            * When Your Credit balance will reach 0 game will be over.<br/>
+            * Buy additional Credits to contonue the game.</p>
+         </div>
+
+         <h3>Winnings table</h3>
+         <div class="table">
+
+            <div class="row header">
+               <div class="cell">
+                  Your Selection
+               </div>
+               <div class="cell">
+                  2 X Same
+               </div>
+               <div class="cell">
+                  3 X Same
+               </div>
+               <div class="cell">
+                  3 X Other
+               </div>
+            </div>
+
+            <!-- ROWS -->
+            <div class="row">
+               <div class="cell">
+                  No Fruit selected
+               </div>
+               <div class="cell">
+                  0 Credits
+               </div>
+               <div class="cell">
+                  100 Credits
+               </div>
+               <div class="cell">
+                  
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="cell">
+                  Any Fruit Slected
+               </div>
+               <div class="cell">
+                  50 Credits
+               </div>
+               <div class="cell">
+                  200 Credits
+               </div>
+               <div class="cell">
+                  100 Credits
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="cell">
+                  Wild Selected
+               </div>
+               <div class="cell">
+                  50 Credits
+               </div>
+               <div class="cell">
+                  500 Credits
+               </div>
+               <div class="cell">
+                  100 Credits
+               </div>
+            </div>
+
+         </div>
+
+      </div>
+   </div>
+
+   <script src="js/game.js"></script>
+   <!-- AJAX call -->
+   <script type="text/javascript">
+
+      getJson = function( url, callback ) {
+         var request = new XMLHttpRequest();
+
+         request.onreadystatechange = function() {
+            if ( request.readyState == 4 && request.status == 200 ) {
+               callback( request.responseText ); 
+            }
+         }; 
+         request.open(  'GET', url );
+         request.send();
+      }
+
+      function success( data ) {
+         var retData = JSON.parse(data);
+         Main(retData);
+         // var str = JSON.stringify(retData);
+         var loading_screen = document.getElementById("load_screen");
+         
+         start.addEventListener('click', function() {
+            document.body.removeChild(loading_screen);
+         });
+      }
+
+      var url = 'js/data.json';
+      getJson( url, success );
+
+   </script>
+</body>
+</html>
